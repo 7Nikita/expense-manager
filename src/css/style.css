@@ -67,17 +67,18 @@
 .definition_title {
     min-width: 160px;
     padding-right: 20px;
-    font-weight: 500;
-    font-size: 30px;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 .definition_description {
-    font-weight: normal;
-    font-size: 24px;
+    font-weight: 100;
+    font-size: 20px;
     padding-bottom: 1px;
 }
 
 .card > .card_element {
+    border: none;
     border-right: 1px solid #D2D2D2;
 }
 
@@ -318,6 +319,7 @@
     background: #FF9A9A;
     min-width: 300px;
     margin: 30px;
+    list-style-type: none;
 }
 
 .transaction-back-red {
@@ -360,6 +362,7 @@
 
 .transaction__text {
     padding: 6px;
+    margin: 0;
 }
 
 .b-date {
@@ -490,7 +493,9 @@
 .b-text-red {
     color: #DB2222;
 }
-
+.b-text__item{
+    margin: 0;
+}
 .m-stat {
     font-family: Montserrat;
 }
@@ -508,11 +513,15 @@
     justify-content: center;
 }
 
-.m-stat__left {
+.diagram{
+    display: flex;
+    justify-content: center;
+}
+.diagram__legend{
     padding: 50px;
 }
 
-.m-stat__right {
+.diagram__main{
     max-width: 300px;
 }
 

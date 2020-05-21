@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spender - Statistic Global</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="fonts/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/montserrat/montserrat.css"/>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img class="logo__img" src="images/credit-card.png" width="40px" height="40px"/>
+        <div class="logo__title">$pender</div>
+    </div>
+
+    <nav class="menu">
+        <ul class="menu__list">
+            <li class="menu__item">Transaction</li>
+            <li class="menu__item">Categories</li>
+            <li class="menu__item menu__item-active">Statistics</li>
+        </ul>
+    </nav>
+
+    <div class="user-block">
+        <img src="images/user.png" class="user-block__img"/>
+        <div class="user-block__title">Nikita Pekurin</div>
+    </div>
+
+    <div class="header__beak"></div>
+
+    <div class="header__category">
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item menu__item-active">Global</li>
+                <li class="menu__item">Categories</li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main">
+    <div class="m-stat">
+
+
+        <div class="m-stat__date">
+            <div class="b-date">
+                <img class="b-date__img" src="images/calendar.png"/>
+
+                <div class="b-date__picker">
+                    <input type="date"/>
+                </div>
+
+                <div class="b-date__separator"></div>
+
+                <div class="b-date__picker">
+                    <input type="date"/>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="m-stat__title">
+            <h3>Income</h3>
+        </div>
+
+        <div class="m-stat__main">
+            <figure class="diagram">
+                <figcaption class="diagram__legend">
+                    <div class="legend">
+                        <div class="legend__title">Legend</div>
+                        <div class="legend__item" style="background: #E5ADE0">Food</div>
+                        <div class="legend__item" style="background: #53C7EC">Entertainment</div>
+                        <div class="legend__item" style="background: #F8C283">Fuel</div>
+                    </div>
+                </figcaption>
+                <div class="diagram__main">
+                    <div class="canvas">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                            <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                            <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                    stroke="#e5ade0" stroke-width="3"></circle>
+                            <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                    stroke="#53c7ec" stroke-width="3" stroke-dasharray="85 15"
+                                    stroke-dashoffset="25"></circle>
+                            <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                    stroke="#f8c283" stroke-width="3" stroke-dasharray="15 85"
+                                    stroke-dashoffset="25"></circle>
+                        </svg>
+                    </div>
+                    <div class="m-stat__text">
+                        <div class="b-text b-text-green">
+                            <div class="b-text__item">7000 $</div>
+                            <div class="b-text__item">Total Income</div>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+
+
+        </div>
+    </div>
+
+    <div class="m-stat__title">
+        <h3>Income</h3>
+    </div>
+
+    <div class="m-stat__main">
+        <figure class="diagram">
+            <figcaption class="diagram__legend">
+                <div class="legend">
+                    <div class="legend__title">Legend</div>
+                    <div class="legend__item" style="background: #E5ADE0">Food</div>
+                    <div class="legend__item" style="background: #53C7EC">Entertainment</div>
+                    <div class="legend__item" style="background: #F8C283">Fuel</div>
+                </div>
+            </figcaption>
+            <div class="diagram__main">
+                <div class="canvas">
+                    <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                stroke="#e5ade0" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                stroke="#53c7ec" stroke-width="3" stroke-dasharray="85 15"
+                                stroke-dashoffset="25"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+                                stroke="#f8c283" stroke-width="3" stroke-dasharray="15 85"
+                                stroke-dashoffset="25"></circle>
+                    </svg>
+                </div>
+                <div class="m-stat__text">
+                    <div class="b-text b-text-red">
+                        <div class="b-text__item">7000 $</div>
+                        <div class="b-text__item">Total Income</div>
+                    </div>
+                </div>
+            </div>
+        </figure>
+    </div>
+
+    </div>
+</main>
+</body>
+</html>

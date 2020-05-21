@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add transaction</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/montserrat/montserrat.css"/>
+    <link href="fonts/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+</head>
+<body>
+<main class="main">
+    <div class="content">
+        <form class="form">
+            <div class="form__header">
+                <h3 class="form_title">Add</h3>
+            </div>
+
+            <div class="edit-box">
+                <input type="text" class="edit-box__input" placeholder="Amount">
+            </div>
+
+            <div class="edit-box">
+                <input type="text" class="edit-box__input" placeholder="Place">
+            </div>
+
+            <div class="edit-box">
+                <input type="text" class="edit-box__input" placeholder="Category">
+            </div>
+
+            <div class="edit-box">
+                <input type="text" class="edit-box__input" placeholder="Description">
+            </div>
+
+            <div class="form__radio">
+                <div class="radio-btn">
+                    <input type="radio" id="choice1" name="drone" value="income" class="radio-btn__input">
+                    <label for="choice1" class="radio-btn__text">Income</label>
+                </div>
+
+                <div class="radio-btn">
+                    <input type="radio" id="choice2" name="drone" value="expense" class="radio-btn__input">
+                    <label for="choice2" class="radio-btn__text">Expense</label>
+                </div>
+            </div>
+
+            <div class="form__center-item">
+                <div class="b-date">
+                    <img class="b-date__img" src="images/calendar.png"/>
+
+                    <div class="b-date__picker">
+                        <input type="date"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__center-item">
+                <div class="choose-file">
+                    <input type="file" accept="image/*" name="file" id="file" class="choose-file__input">
+                    <label for="file" class="choose-file__label">
+                        <i class="far fa-file-image"></i>
+                        <span class="js-fileName">Choose img</span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form__footer">
+
+                <button class="form__button">Add</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

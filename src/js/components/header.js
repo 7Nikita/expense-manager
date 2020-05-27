@@ -1,16 +1,15 @@
 import {Router} from "../router.js";
 
-let user;
-
 let header = {
     render: async () => {
-        user = firebase.auth().currentUser;
+        let user = firebase.auth().currentUser;
+        let username = localStorage.getItem("username");
         let headerView;
         if (user) {
             headerView = `
                 <div class="user-block">
                     <img src="images/user.png" class="user-block__img"/>
-                    <div class="user-block__title">${user.displayName}</div>
+                    <div class="user-block__title">${user ? user.displayName : username}</div>
                 </div>
             `
         } else {
@@ -38,6 +37,7 @@ let header = {
         return view;
     },
     after_render: async () => {
+        let user = firebase.auth().currentUser;
         if (user) {
             return;
         }

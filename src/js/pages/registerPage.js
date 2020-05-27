@@ -1,5 +1,6 @@
 import {Router} from "../router.js";
 import {parseFrom} from "../helpers/parseForm.js";
+import {firebaseService} from "../services/index.js";
 
 let RegisterPage = {
     render: async () => {
@@ -20,13 +21,13 @@ let RegisterPage = {
                             <input required name="pass" type="password" minlength="6" class="edit-box__input" placeholder="Password">
                         </div>
                         <div class="edit-box">
-                            <input required name="first-name" type="text" class="edit-box__input" placeholder="First Name">
+                            <input required name="name" type="text" class="edit-box__input" placeholder="First Name">
                         </div>
                         <div class="edit-box">
                             <input required name="repeat-pass" type="password" minlength="6" class="edit-box__input" placeholder="Repeat Password">
                         </div>
                         <div class="edit-box">
-                            <input required name="s-name" type="text" class="edit-box__input" placeholder="Last Name">
+                            <input required name="surname" type="text" class="edit-box__input" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="form__footer">
@@ -56,13 +57,15 @@ function registerUser(values) {
     const auth = firebase.auth();
     auth.createUserWithEmailAndPassword(values["email"], values["pass"])
         .then((res) => {
-            return res.user.updateProfile({displayName: values["username"]}).then(() => {
-                localStorage.setItem("username", values["username"])
-                Router._instance.navigate("/profile");
-            })
+            return res.user.updateProfile({displayName: values["username"]})
+                .then(() => {
+                    firebaseService.writeUserData(auth.currentUser, values["email"], values["username"], values["name"], values["surname"]);
+                    localStorage.setItem("username", values["username"])
+                    Router._instance.navigate("/profile");
+                })
         }).catch(error => {
-        console.error(error);
-    });
+            alert(error);
+        });
 }
 
 export default RegisterPage;

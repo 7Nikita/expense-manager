@@ -1,8 +1,11 @@
+import {firebaseService} from "../services/index.js";
+
 let user;
 
 let ProfilePage = {
     render: async () => {
         user = firebase.auth().currentUser;
+        const userInfo = await firebaseService.readUserData(user);
         let view =  /*html*/`
             <div class="content">
                 <div class="card">
@@ -15,15 +18,15 @@ let ProfilePage = {
                         <div>
                             <div class="definition">
                                 <div class="definition_title">Email:</div>
-                                <div class="definition_description">${user.email}</div>
+                                <div class="definition_description">${userInfo["email"]}</div>
                             </div>
                             <div class="definition">
                                 <div class="definition_title">Name:</div>
-                                <div class="definition_description">Name</div>
+                                <div class="definition_description">${userInfo["name"]}</div>
                             </div>
                             <div class="definition">
                                 <div class="definition_title">Surname:</div>
-                                <div class="definition_description">Surname</div>
+                                <div class="definition_description">${userInfo["surname"]}</div>
                             </div>
                         </div>
        

@@ -1,8 +1,6 @@
 import {Router} from "./router.js";
 import {routes} from "./routes.js";
 
-firebase.auth()
-    .onAuthStateChanged(() => {
-            Router.init(routes);
-        }
-    );
+document.addEventListener("DOMContentLoaded", () => {
+    Router.init(routes);
+});

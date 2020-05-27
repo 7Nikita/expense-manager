@@ -12,7 +12,7 @@ export class Router {
     }
 
     _onPopState() {
-        this.loadPage(this.parseCurrentURL())
+        this.loadPage(this.parseCurrentURL());
     }
 
     static init(routes) {
@@ -24,13 +24,13 @@ export class Router {
         window.history.replaceState({path}, path, path);
         const router = new Router(routes);
         Router._instance = router;
-        router._loadInitial()
+        router._loadInitial();
         return router;
     }
 
     navigate(url, render = true) {
         history.pushState({}, "", url);
-        this.loadPage(url)
+        this.loadPage(url);
     }
 
     async loadPage(url) {
@@ -40,11 +40,11 @@ export class Router {
         header.innerHTML = await Header.render();
         await Header.after_render();
 
-        let currentPage = NotFoundPage
-        console.log(url)
+        let currentPage = NotFoundPage;
+        console.log(url);
         for (const {path, page} of Router._instance.routes) {
             if (path === url) {
-                currentPage = page
+                currentPage = page;
             }
         }
         content.innerHTML = await currentPage.render();
@@ -55,11 +55,11 @@ export class Router {
         let request = Utils.parseRequestURL()
         return (request.resource ? '/' + request.resource : '/')
             + (request.id ? '/:id' : '')
-            + (request.verb ? '/' + request.verb : '')
+            + (request.verb ? '/' + request.verb : '');
     }
 
     async _loadInitial() {
-        this.navigate(this.parseCurrentURL())
+        this.navigate(this.parseCurrentURL());
     }
 
 }

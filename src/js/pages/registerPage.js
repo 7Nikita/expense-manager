@@ -14,10 +14,10 @@ let RegisterPage = {
                             <input required name="email" type="email" class="edit-box__input" placeholder="E-mail">
                         </div>
                         <div class="edit-box">
-                            <input required name="pass" type="password" min="6" class="edit-box__input" placeholder="Password">
+                            <input required name="pass" type="password" minlength="6" class="edit-box__input" placeholder="Password">
                         </div>
                         <div class="edit-box">
-                            <input required name="repeat-pass" type="password" min="6" class="edit-box__input" placeholder="Repeat Password">
+                            <input required name="repeat-pass" type="password" minlength="6" class="edit-box__input" placeholder="Repeat Password">
                         </div>
                     </div>
                     <div class="form__footer">

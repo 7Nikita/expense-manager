@@ -24,7 +24,9 @@ export class Router {
         window.history.replaceState({path}, path, path);
         const router = new Router(routes);
         Router._instance = router;
-        router._loadInitial();
+        firebase.auth().onAuthStateChanged(() => {
+            router._loadInitial();
+        });
         return router;
     }
 

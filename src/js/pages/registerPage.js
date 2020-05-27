@@ -9,15 +9,24 @@ let RegisterPage = {
                     <div class="form__header">
                         <h3 class="form_title">Create a free account</h3>
                     </div>
-                    <div>
+                    <div class="form__main-table">
                         <div class="edit-box">
                             <input required name="email" type="email" class="edit-box__input" placeholder="E-mail">
+                        </div>
+                        <div class="edit-box">
+                            <input required name="username" type="text" class="edit-box__input" placeholder="Username">
                         </div>
                         <div class="edit-box">
                             <input required name="pass" type="password" minlength="6" class="edit-box__input" placeholder="Password">
                         </div>
                         <div class="edit-box">
+                            <input required name="first-name" type="text" class="edit-box__input" placeholder="First Name">
+                        </div>
+                        <div class="edit-box">
                             <input required name="repeat-pass" type="password" minlength="6" class="edit-box__input" placeholder="Repeat Password">
+                        </div>
+                        <div class="edit-box">
+                            <input required name="s-name" type="text" class="edit-box__input" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="form__footer">
@@ -35,23 +44,25 @@ let RegisterPage = {
             event.preventDefault();
             let formValues = parseFrom(form);
             if (formValues["pass"] != formValues["repeat-pass"]) {
-                alert("Passwords do not match!")
+                alert("Passwords do not match!");
             } else {
-                registerUser(formValues["email"], formValues["pass"]);
+                registerUser(formValues);
             }
         });
     }
 }
 
-function registerUser(email, pass) {
+function registerUser(values) {
     const auth = firebase.auth();
-    auth.createUserWithEmailAndPassword(email, pass)
-        .then(() => {
-            Router._instance.navigate("/");
-        })
-        .catch(error => {
-            console.error(error);
-        })
+    auth.createUserWithEmailAndPassword(values["email"], values["pass"])
+        .then((res) => {
+            return res.user.updateProfile({displayName: values["username"]}).then(() => {
+                localStorage.setItem("username", values["username"])
+                Router._instance.navigate("/profile");
+            })
+        }).catch(error => {
+        console.error(error);
+    });
 }
 
 export default RegisterPage;

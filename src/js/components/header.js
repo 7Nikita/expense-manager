@@ -10,7 +10,7 @@ let header = {
             headerView = `
                 <div class="user-block">
                     <img src="images/user.png" class="user-block__img"/>
-                    <div class="user-block__title">${user.email}</div>
+                    <div class="user-block__title">${user.displayName}</div>
                 </div>
             `
         } else {

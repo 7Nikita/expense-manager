@@ -11,11 +11,19 @@ let ProfilePage = {
                     </fieldset>
         
                     <fieldset class="card_element">
-                        <h3 class="card_element_title">${user.email}</h3>
+                        <h3 class="card_element_title">${user.displayName ? user.displayName : localStorage.getItem("username")}</h3>
                         <div>
                             <div class="definition">
                                 <div class="definition_title">Email:</div>
                                 <div class="definition_description">${user.email}</div>
+                            </div>
+                            <div class="definition">
+                                <div class="definition_title">Name:</div>
+                                <div class="definition_description">Name</div>
+                            </div>
+                            <div class="definition">
+                                <div class="definition_title">Surname:</div>
+                                <div class="definition_description">Surname</div>
                             </div>
                         </div>
        

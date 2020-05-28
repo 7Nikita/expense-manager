@@ -1,3 +1,4 @@
+import HomePage from "./pages/homePage.js";
 import LoginPage from "./pages/loginPage.js"
 import RegisterPage from "./pages/registerPage.js";
 import ProfilePage from "./pages/profilePage.js";
@@ -5,7 +6,7 @@ import ProfilePage from "./pages/profilePage.js";
 export const routes = [
     {
         path: "/",
-        page: LoginPage
+        page: HomePage
     },
     {
         path: "/login",

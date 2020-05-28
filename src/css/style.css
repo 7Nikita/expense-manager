@@ -18,6 +18,13 @@
     flex: 1;
 }
 
+.menu__actions {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .menu__list {
     list-style: none;
     display: flex;
@@ -45,6 +52,7 @@
     background: white;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
 }
 
 .header-space {

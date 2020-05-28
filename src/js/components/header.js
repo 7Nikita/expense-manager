@@ -7,13 +7,15 @@ let header = {
         let headerView;
         if (user) {
             headerView = `
-               <nav class="menu">
-                    <ul class="menu__list">
-                        <li class="menu__item">Transaction</li>
-                        <li class="menu__item">Categories</li>
-                        <li class="menu__item">Statistics</li>
-                    </ul>
-                </nav>
+                <div class="menu__actions">
+                   <nav class="menu">
+                        <ul class="menu__list">
+                            <li class="menu__item" id="header-transactions">Transactions</li>
+                            <li class="menu__item" id="header-categories">Categories</li>
+                            <li class="menu__item" id="header-statistics">Statistics</li>
+                        </ul>
+                    </nav>
+                </div>
                 <div class="user-block">
                     <img src="images/user.png" class="user-block__img"/>
                     <div class="user-block__title">${user ? user.displayName : username}</div>
@@ -46,19 +48,27 @@ let header = {
     after_render: async () => {
         let user = firebase.auth().currentUser;
         if (user) {
-            return;
+            const transactionButton = document.getElementById("header-transactions");
+            const categoriesButton = document.getElementById("header-categories");
+            const statisticsButton = document.getElementById("header-statistics");
+            categoriesButton.onclick = () => {
+                console.log("init categories");
+                Router._instance.navigate("/categories");
+            }
+
+        } else {
+            const loginButton = document.getElementById("header-login");
+            const registerButton = document.getElementById("header-signup");
+
+            loginButton.onclick = () => {
+                Router._instance.navigate("/login");
+            }
+
+            registerButton.onclick = () => {
+                Router._instance.navigate("/register");
+            }
         }
 
-        const loginButton = document.getElementById("header-login");
-        const registerButton = document.getElementById("header-signup");
-
-        loginButton.onclick = () => {
-            Router._instance.navigate("/login");
-        }
-
-        registerButton.onclick =() => {
-            Router._instance.navigate("/register");
-        }
     }
 }
 export default header;

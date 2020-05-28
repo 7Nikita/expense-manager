@@ -7,6 +7,13 @@ let header = {
         let headerView;
         if (user) {
             headerView = `
+               <nav class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">Transaction</li>
+                        <li class="menu__item">Categories</li>
+                        <li class="menu__item">Statistics</li>
+                    </ul>
+                </nav>
                 <div class="user-block">
                     <img src="images/user.png" class="user-block__img"/>
                     <div class="user-block__title">${user ? user.displayName : username}</div>

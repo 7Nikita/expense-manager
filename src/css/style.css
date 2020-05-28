@@ -31,6 +31,10 @@
     margin-right: 10px;
 }
 
+.menu__item:hover {
+    border-bottom: 1px solid;;
+}
+
 .menu__item-active {
     border-bottom: 1px solid;
 }
@@ -647,4 +651,9 @@
 .choose-file__label:hover {
     color: #888;
     border-color: #888;
+}
+
+.center-title {
+    text-align: center;
+    font-family: "Open Sans";
 }

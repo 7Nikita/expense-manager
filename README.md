@@ -21,3 +21,6 @@ BSUIR/FCSN/Term 6/Internet Technologies and Distributed Data Processing
 - [Add Category](https://7nikita.github.io/expense-manager/src/add-category)
 - [Category Stat](https://7nikita.github.io/expense-manager/src/category-stat)
 - [Global Stat](https://7nikita.github.io/expense-manager/src/global-stat)
+
+# Firebase Hosting:
+https://spender-9ac28.web.app/

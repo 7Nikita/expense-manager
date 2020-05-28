@@ -18,7 +18,8 @@ let header = {
                 </div>
                 <div class="user-block">
                     <img src="images/user.png" class="user-block__img"/>
-                    <div class="user-block__title">${user ? user.displayName : username}</div>
+                    <div class="user-block__title" id="header-username">${user ? user.displayName : username}</div>
+                    <button class="button_logout" id="header-logout">Log out</button>
                 </div>
             `
         } else {
@@ -33,7 +34,6 @@ let header = {
                 </div>   
             `
         }
-
         let view =  /*html*/`
             <header class="header header-space">
                 <div class="logo">
@@ -50,11 +50,23 @@ let header = {
         if (user) {
             const transactionButton = document.getElementById("header-transactions");
             const categoriesButton = document.getElementById("header-categories");
-            const statisticsButton = document.getElementById("header-statistics");
             categoriesButton.onclick = () => {
-                console.log("init categories");
                 Router._instance.navigate("/categories");
             }
+
+            const statisticsButton = document.getElementById("header-statistics");
+
+            const logoutButton = document.getElementById("header-logout");
+            console.log(logoutButton);
+            logoutButton.onclick = () => {
+                firebase.auth().signOut();
+                Router._instance.navigate("/login")
+            };
+
+            const usernameButton = document.getElementById("header-username");
+            usernameButton.onclick = () => {
+              Router._instance.navigate("/profile");
+            };
 
         } else {
             const loginButton = document.getElementById("header-login");
@@ -62,11 +74,11 @@ let header = {
 
             loginButton.onclick = () => {
                 Router._instance.navigate("/login");
-            }
+            };
 
             registerButton.onclick = () => {
                 Router._instance.navigate("/register");
-            }
+            };
         }
 
     }

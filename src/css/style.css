@@ -39,7 +39,7 @@
 }
 
 .menu__item:hover {
-    border-bottom: 1px solid;;
+    border-bottom: 1px solid;
 }
 
 .menu__item-active {
@@ -178,6 +178,11 @@
         font-size: 13px !important;
     }
 
+    .menu__actions {
+        position: relative;
+        order: 1;
+    }
+
     .header__category {
         order: 2;
     }
@@ -248,6 +253,7 @@
 
 .user-block {
     display: flex;
+    z-index: 1;
 }
 
 .user-block__img {
@@ -676,4 +682,17 @@
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.3);
+}
+
+.button_logout {
+    border: 0;
+    background: transparent;
+    color: black;
+    font-family: Montserrat;
+    padding: 4px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.button_logout:hover {
+    border-bottom: 1px solid;
 }

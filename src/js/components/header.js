@@ -57,7 +57,6 @@ let header = {
             const statisticsButton = document.getElementById("header-statistics");
 
             const logoutButton = document.getElementById("header-logout");
-            console.log(logoutButton);
             logoutButton.onclick = () => {
                 firebase.auth().signOut();
                 Router._instance.navigate("/login")

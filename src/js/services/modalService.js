@@ -9,6 +9,5 @@ export const presentModal = async (content) => {
 };
 
 export const closeModal = async () => {
-    const modalStyle = document.getElementById("modal-style");
-    document.body.removeChild(modalStyle);
+    document.body.removeChild(modalRoot);
 };

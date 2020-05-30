@@ -1,13 +1,14 @@
-export const categoryComponent = (content) => ({
-
-        render: async (category) => {
+export const categoryComponent = (category) => {
+    return {
+        render: async () => {
             let view =  /*html*/`
                     <div class="transaction transaction-back-red">
                         <div class="head-block">
                             <span class="head-block__title">${category["title"]}</span>
                             <div class="head-block__right-corner">
-                                <button class="head-block__btn"><i class="fas fa-edit"></i></button>
-                                <button class="head-block__btn"><i class="fas fa-trash"></i></button>
+                                <button class="head-block__btn" id="category-component-delete">
+                                    <i class="fas fa-trash" data-href="${category["uid"]}"></i>
+                                </button>
                             </div>
 
                         </div>
@@ -18,9 +19,9 @@ export const categoryComponent = (content) => ({
             `;
             return view;
         },
-        after_render: async () => {
-
+        after_render: async (category) => {
         }
     }
-)
+}
+
 export default categoryComponent;

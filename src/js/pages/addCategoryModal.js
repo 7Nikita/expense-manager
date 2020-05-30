@@ -1,6 +1,5 @@
 import {firebaseService} from "../services/index.js";
 import {closeModal} from "../services/modalService.js";
-import {validateHEXColor} from "../services/validateHEXColor.js";
 import {Category} from "../models/category.js";
 
 let AddCategoryModal = {
@@ -21,9 +20,8 @@ let AddCategoryModal = {
                         <input required id="category-desc" type="text" class="edit-box__input" placeholder="Description">
                     </div>
         
-                    <div class="edit-box__color_input">
-                        <span>#</span>
-                        <input required id="category-color" type="text" class="edit-box__input" minlength="6" maxlength="6" placeholder="Hex Color">
+                    <div class="edit-box">
+                        <input required id="category-color" type="color" class="edit-box__input" value="#e66465">
                     </div>
         
                     <div class="form__footer">
@@ -43,17 +41,11 @@ let AddCategoryModal = {
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            const hexColor = colorInput.value.toLowerCase();
-            if (!validateHEXColor(hexColor)) {
-                alert("Hex color must contain only [a-f] letters and digits.")
-                return;
-            }
-
             const category = new Category(
                 {
                     title: titleInput.value,
                     description: descInput.value,
-                    color: "#" + hexColor
+                    color: colorInput.value
                 }
             );
 

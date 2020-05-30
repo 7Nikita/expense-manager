@@ -1,5 +1,6 @@
 import {firebaseService} from "../services/index.js";
 import {closeModal} from "../services/modalService.js";
+import {validateHEXColor} from "../services/validateHEXColor.js";
 
 let AddCategoryModal = {
     render: async () => {
@@ -18,12 +19,10 @@ let AddCategoryModal = {
                         <input required id="category-desc" type="text" class="edit-box__input" placeholder="Description">
                     </div>
         
-                    <div class="dropdown">
-                        <button class="dropdown__btn">Color</button>
-                        <div class="dropdown__content">
-                            <button class="dropdown__item">Color 1</button>
-                            <button class="dropdown__item">Color 2</button>
-                            <button class="dropdown__item">Color 3</button>
+                    <div class="edit-box">
+                        <div class="edit-box__color_input">
+                            <span>#</span>
+                            <input required id="category-color" type="text" class="edit-box__input" minlength="6" maxlength="6" placeholder="Hex Color">
                         </div>
                     </div>
         
@@ -39,10 +38,18 @@ let AddCategoryModal = {
         const user = firebase.auth().currentUser;
         const titleInput = document.getElementById("category-title");
         const descInput = document.getElementById("category-desc");
+        const colorInput = document.getElementById("category-color");
         const form = document.querySelector("form");
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
-            await firebaseService.writeCategory(user, titleInput.value, descInput.value, null);
+
+            const hexColor = colorInput.value.toLowerCase();
+            if (!validateHEXColor(hexColor)) {
+                alert("Hex color must contain only [a-f] letters and digits.")
+                return;
+            }
+
+            await firebaseService.writeCategory(user, titleInput.value, descInput.value, "#" + hexColor);
             closeModal();
         });
     }

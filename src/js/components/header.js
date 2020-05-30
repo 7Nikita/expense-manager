@@ -49,6 +49,10 @@ let header = {
         let user = firebase.auth().currentUser;
         if (user) {
             const transactionButton = document.getElementById("header-transactions");
+            transactionButton.onclick = () => {
+                Router._instance.navigate("/transactions");
+            }
+
             const categoriesButton = document.getElementById("header-categories");
             categoriesButton.onclick = () => {
                 Router._instance.navigate("/categories");

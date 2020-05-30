@@ -22,7 +22,6 @@ let CategoriesPage = {
 
         const tableMain = document.querySelector(".table__main");
         let user = firebase.auth().currentUser;
-        // let categories = Object.values(await firebaseService.getCategories(user) ?? []);
 
         firebaseService.getCategories(user, async (data) => {
             if (!data.length) { return; }
@@ -36,9 +35,9 @@ let CategoriesPage = {
         });
 
         const addCategoriesButton = document.getElementById("add-categories-button");
-        addCategoriesButton.onclick = () => {
+        addCategoriesButton.addEventListener("click", () => {
             presentModal(AddCategoryModal);
-        }
+        });
         tableMain.addEventListener("click", async (event) => {
             if (event.target.className.includes("fas fa-trash")) {
                 const categoryUid = event.target.getAttribute("data-href");

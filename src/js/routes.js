@@ -3,6 +3,7 @@ import LoginPage from "./pages/loginPage.js"
 import RegisterPage from "./pages/registerPage.js";
 import ProfilePage from "./pages/profilePage.js";
 import CategoriesPage from "./pages/categoriesPage.js";
+import TransactionsPage from "./pages/transactionsPage.js";
 
 export const routes = [
     {
@@ -24,5 +25,9 @@ export const routes = [
     {
         path: "/categories",
         page: CategoriesPage
+    },
+    {
+        path: "/transactions",
+        page: TransactionsPage
     }
 ];

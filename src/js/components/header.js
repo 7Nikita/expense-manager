@@ -17,7 +17,7 @@ let header = {
                     </nav>
                 </div>
                 <div class="user-block">
-                    <img src="images/user.png" class="user-block__img"/>
+                    <img src="/images/user.png" class="user-block__img"/>
                     <div class="user-block__title" id="header-username">${user ? user.displayName : username}</div>
                     <button class="button_logout" id="header-logout">Log out</button>
                 </div>
@@ -37,7 +37,7 @@ let header = {
         let view =  /*html*/`
             <header class="header header-space">
                 <div class="logo">
-                    <img class="logo__img" src="../../images/credit-card.png" width="40px" height="40px"/>
+                    <img class="logo__img" src="/images/credit-card.png" width="40px" height="40px"/>
                     <div class="logo__title">$pender</div>
                 </div>
                 ${headerView}

@@ -1,12 +1,14 @@
 import {firebaseService} from "../services/index.js";
 import {closeModal} from "../services/modalService.js";
 import {validateHEXColor} from "../services/validateHEXColor.js";
+import {Category} from "../models/category.js";
 
 let AddCategoryModal = {
     render: async () => {
         let view =  /*html*/`
             <div class="content">
                 <form class="form">
+                    <span class="close-button" id="category-close-button">&times;</span> 
                     <div class="form__header">
                         <h3 class="form_title">Add</h3>
                     </div>
@@ -19,11 +21,9 @@ let AddCategoryModal = {
                         <input required id="category-desc" type="text" class="edit-box__input" placeholder="Description">
                     </div>
         
-                    <div class="edit-box">
-                        <div class="edit-box__color_input">
-                            <span>#</span>
-                            <input required id="category-color" type="text" class="edit-box__input" minlength="6" maxlength="6" placeholder="Hex Color">
-                        </div>
+                    <div class="edit-box__color_input">
+                        <span>#</span>
+                        <input required id="category-color" type="text" class="edit-box__input" minlength="6" maxlength="6" placeholder="Hex Color">
                     </div>
         
                     <div class="form__footer">
@@ -49,7 +49,21 @@ let AddCategoryModal = {
                 return;
             }
 
-            await firebaseService.writeCategory(user, titleInput.value, descInput.value, "#" + hexColor);
+            const category = new Category(
+                {
+                    title: titleInput.value,
+                    description: descInput.value,
+                    color: "#" + hexColor
+                }
+            );
+
+            await firebaseService.writeCategory(user, category);
+            closeModal();
+        });
+
+        const categoryCloseButton = document.getElementById("category-close-button");
+        categoryCloseButton.addEventListener("click", (event) => {
+            event.preventDefault();
             closeModal();
         });
     }

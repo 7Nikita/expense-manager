@@ -56,7 +56,7 @@ export class Router {
     parseCurrentURL() {
         let request = Utils.parseRequestURL()
         return (request.resource ? '/' + request.resource : '/')
-            + (request.id ? '/:id' : '')
+            + (request.id ? '/' + request.id : '')
             + (request.verb ? '/' + request.verb : '');
     }
 

@@ -19,7 +19,7 @@ export const categoryComponent = (category) => {
             `;
             return view;
         },
-        after_render: async (category) => {
+        after_render: async () => {
         }
     }
 }

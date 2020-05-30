@@ -21,7 +21,7 @@ let CategoriesPage = {
     after_render: async () => {
 
         const tableMain = document.querySelector(".table__main");
-        let user = firebase.auth().currentUser;
+        const user = firebase.auth().currentUser;
 
         firebaseService.getCategories(user, async (data) => {
             if (!data.length) { return; }
@@ -41,7 +41,6 @@ let CategoriesPage = {
         tableMain.addEventListener("click", async (event) => {
             if (event.target.className.includes("fas fa-trash")) {
                 const categoryUid = event.target.getAttribute("data-href");
-                const user = firebase.auth().currentUser;
                 await firebaseService.removeCategory(user, categoryUid);
             }
         });

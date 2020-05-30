@@ -1,3 +1,6 @@
+import {Transaction} from "../models/transaction.js";
+import {Category} from "../models/category.js";
+
 class FirebaseService {
 
     async readUserData({uid}) {
@@ -35,7 +38,7 @@ class FirebaseService {
         return firebase.database().ref(`/category${uid}`);
     }
 
-    async writeCategory({uid}, title, description, color) {
+    async writeCategory({uid}, category) {
         /*
             Path is `/category${uid}`, nor /category/${uid}, because firebase
             can't add a new node to the list. In this way we need to copy
@@ -46,9 +49,9 @@ class FirebaseService {
         const categoryNode = await this.categoryRef(uid).push();
         await categoryNode.set(
             {
-                title,
-                description,
-                color,
+                title: category.title,
+                description: category.description,
+                color: category.color,
                 uid: categoryNode.key,
             }
         );
@@ -58,44 +61,50 @@ class FirebaseService {
         this.getData(callback, this.categoryRef(uid));
     }
 
+    async getCategoriesList({uid}) {
+        const snapshot = await this.categoryRef(uid).once("value");
+        return Object.values(snapshot.val() ?? []);
+    }
+
+    async getCategoriesDict({uid}) {
+        const snapshot = await this.categoryRef(uid).once("value");
+        return snapshot.val();
+    }
+
     async removeCategory({uid}, categoryId) {
         await this.categoryRef(uid).child(categoryId).remove();
     }
 
-    expenseRef(uid) {
-        return firebase.database().ref(`/expense${uid}`);
+    transactionRef(uid) {
+        return firebase.database().ref(`/transaction${uid}`);
     }
 
-    async writeExpense({uid}, expense) {
-        const expenseNode = await this.expenseRef(uid).push();
-        await expenseNode.set(
+    async writeTransaction({uid}, transaction) {
+        const transactionNode = await this.transactionRef(uid).push();
+        await transactionNode.set(
             {
-
+                amount: transaction.amount,
+                place: transaction.place,
+                description: transaction.description,
+                category_id: transaction.category_id,
+                date: transaction.date,
+                type: transaction.type,
+                uid: transactionNode.key,
             }
         );
     }
 
-    getExpense({uid}, callback) {
-        this.getData(callback, this.expenseRef(uid));
+    getTransactions({uid}, callback) {
+        this.getData(callback, this.transactionRef(uid));
     }
 
-    incomeRef(uid) {
-        return firebase.database().ref(`/income${uid}`);
+    async removeTransaction({uid}, transactionId) {
+        await this.transactionRef(uid).child(transactionId).remove();
     }
 
-    async writeIncome({uid}, income) {
-        const incomeNode = await this.incomeRef(uid).push();
-        await incomeNode.set(
-            {
+    async uploadImage({uid}, image) {
 
-            }
-        );
     }
-
-    getIncomes({uid}, callback) {
-        this.getData(callback, this.incomeRef(uid));
-    }
-
 }
 
 export default FirebaseService;

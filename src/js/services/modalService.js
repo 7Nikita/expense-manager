@@ -9,5 +9,5 @@ export const presentModal = async (content) => {
 };
 
 export const closeModal = async () => {
-    document.body.removeChild(modalRoot);
+    modalRoot.innerHTML = "";
 };

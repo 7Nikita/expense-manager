@@ -457,6 +457,8 @@
     background: #FFFFFF;
     min-width: 250px;
     margin: 0 30px 30px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .edit-box__input {
@@ -713,4 +715,20 @@
     cursor: pointer;
     border-radius: 0.25rem;
     font-size: 40px;
+}
+
+.edit-box__input_color {
+    border: 0;
+    background: none;
+    width: 50%;
+}
+
+.transaction__image {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.rounded__image {
+    border-radius: 50%;
 }

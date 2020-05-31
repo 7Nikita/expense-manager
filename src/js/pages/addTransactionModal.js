@@ -71,12 +71,12 @@ let AddTransactionModal = {
         const transactionDatePicker = document.getElementById("transaction-date-picker");
         const incomeRadioButton = document.getElementById("choice1");
         const expenseRadioButton = document.getElementById("choice2");
+        const imagePicker = document.getElementById("file");
         const form = document.querySelector("form");
 
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
             const type = incomeRadioButton.checked ? "income" : "expense";
-
             const transaction = new Transaction({
                     amount: transactionAmountInput.value,
                     place: transactionPlaceInput.value,
@@ -84,6 +84,7 @@ let AddTransactionModal = {
                     category_id: categorySelector.options[categorySelector.selectedIndex].id,
                     date: transactionDatePicker.value,
                     type: type,
+                    image: imagePicker.files[0],
                 }
             );
             await firebaseService.writeTransaction(user, transaction);

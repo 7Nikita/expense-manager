@@ -21,7 +21,7 @@ let AddCategoryModal = {
                     </div>
         
                     <div class="edit-box">
-                        <input required id="category-color" type="color" class="edit-box__input" value="#e66465">
+                        <input required id="category-color" type="color" class="edit-box__input_color" value="#e66465">
                     </div>
         
                     <div class="form__footer">

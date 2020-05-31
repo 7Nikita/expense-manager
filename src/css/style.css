@@ -306,6 +306,8 @@
 
 .table__title {
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .table__main {
@@ -498,11 +500,11 @@
 }
 
 .b-text {
+    width: max-content;
     font-family: "Open Sans";
     font-weight: 300;
     text-align: center;
     padding: 5px 10px;
-    background: #EAEAEA;
     margin: 10px;
 }
 
@@ -553,6 +555,7 @@
 .m-stat__date {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 50px 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -561,7 +564,23 @@
 .stathead {
     font-family: Montserrat;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+.stathead__item{
+    margin: 10px 30px;
+}
+
+.stathead__select{
+
+}
+
+.stathead__button{
+    border: 0;
+    background: #cccccc;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .stathead__text {

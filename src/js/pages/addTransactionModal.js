@@ -78,7 +78,7 @@ let AddTransactionModal = {
             event.preventDefault();
             const type = incomeRadioButton.checked ? "income" : "expense";
             const transaction = new Transaction({
-                    amount: transactionAmountInput.value,
+                    amount: parseInt(transactionAmountInput.value),
                     place: transactionPlaceInput.value,
                     description: transactionDescriptionInput.value,
                     category_id: categorySelector.options[categorySelector.selectedIndex].id,

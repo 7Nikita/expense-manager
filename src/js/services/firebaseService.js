@@ -100,6 +100,16 @@ class FirebaseService {
         this.getData(callback, this.transactionRef(uid));
     }
 
+    async getTransactionsFromCategory({uid}, categoryId) {
+        const snapshot = await this.transactionRef(uid).orderByChild("category_id").equalTo(categoryId).once("value");
+        return Object.values(snapshot.val() ?? []);
+    }
+
+    async getTransactionsFromDate({uid}, fromDate) {
+        const snapshot = await this.transactionRef(uid).orderByChild("date").startAt(fromDate).once("value");
+        return Object.values(snapshot.val() ?? []);
+    }
+
     async removeTransaction({uid}, transactionId) {
         await this.transactionRef(uid).child(transactionId).remove();
     }

@@ -4,6 +4,8 @@ import RegisterPage from "./pages/registerPage.js";
 import ProfilePage from "./pages/profilePage.js";
 import CategoriesPage from "./pages/categoriesPage.js";
 import TransactionsPage from "./pages/transactionsPage.js";
+import CategoryStatisticPage from "./pages/categoryStatisticPage.js";
+import GlobalStatisticPage from "./pages/globalStatisticPage.js"
 
 export const routes = [
     {
@@ -29,5 +31,13 @@ export const routes = [
     {
         path: "/transactions",
         page: TransactionsPage
+    },
+    {
+        path: "/statistics/category",
+        page: CategoryStatisticPage
+    },
+    {
+        path: "/statistics/global",
+        page: GlobalStatisticPage
     }
 ];

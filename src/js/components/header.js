@@ -59,6 +59,9 @@ let header = {
             }
 
             const statisticsButton = document.getElementById("header-statistics");
+            statisticsButton.onclick = () => {
+                Router._instance.navigate("/statistics/category");
+            }
 
             const logoutButton = document.getElementById("header-logout");
             logoutButton.onclick = () => {

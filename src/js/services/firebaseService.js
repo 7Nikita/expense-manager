@@ -78,10 +78,6 @@ class FirebaseService {
 
     async writeTransaction({uid}, transaction) {
         const transactionNode = await this.transactionRef(uid).push();
-        let imageId = null;
-        if (transaction.image) {
-            imageId = this.uploadImage(uid, transaction.image);
-        }
         await transactionNode.set(
             {
                 amount: transaction.amount,
@@ -91,9 +87,18 @@ class FirebaseService {
                 date: transaction.date,
                 type: transaction.type,
                 uid: transactionNode.key,
-                image: imageId,
+                image: null
             }
         );
+        if (transaction.image) {
+            this.uploadImage(uid, transaction.image,  async (imageId) => {
+                await transactionNode.update(
+                    {
+                        image: imageId,
+                    }
+                );
+            });
+        }
     }
 
     getTransactions({uid}, callback) {
@@ -114,10 +119,17 @@ class FirebaseService {
         await this.transactionRef(uid).child(transactionId).remove();
     }
 
-    uploadImage(uid, image) {
+    uploadImage(uid, image, callback) {
         const imageId = new Date().getTime();
         const imageUploadTask = firebase.storage().ref(`/images/${imageId}`).put(image);
-        return imageId;
+        imageUploadTask.on(
+            firebase.storage.TaskEvent.STATE_CHANGED,
+            () => {},
+            () => {},
+            async () => {
+                callback(imageId);
+            }
+        );
     }
 
     async retrieveImage(imageId) {

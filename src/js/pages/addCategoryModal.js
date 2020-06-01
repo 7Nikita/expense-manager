@@ -13,11 +13,11 @@ let AddCategoryModal = {
                     </div>
         
                     <div class="edit-box">
-                        <input required id="category-title" type="text" class="edit-box__input" placeholder="Title">
+                        <input required id="category-title" maxlength="60" type="text" class="edit-box__input" placeholder="Title">
                     </div>
         
                     <div class="edit-box">
-                        <input required id="category-desc" type="text" class="edit-box__input" placeholder="Description">
+                        <input required id="category-desc" maxlength="256" type="text" class="edit-box__input" placeholder="Description">
                     </div>
         
                     <div class="edit-box">

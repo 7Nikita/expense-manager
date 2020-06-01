@@ -18,13 +18,13 @@ let AddTransactionModal = {
                         <input required type="text" class="edit-box__input" id="transaction-amount" placeholder="Amount">
                     </div>
                     <div class="edit-box">
-                        <input required type="text" class="edit-box__input" id="transaction-place" placeholder="Place">
+                        <input required type="text" maxlength="60" class="edit-box__input" id="transaction-place" placeholder="Place">
                     </div>
                     <div class="edit-box">
                         ${await selectCategoryComponent("edit-box__input", categories).render()}
                     </div>
                     <div class="edit-box">
-                        <input required type="text" class="edit-box__input" id="transaction-description" placeholder="Description">
+                        <input required type="text" maxlength="256" class="edit-box__input" id="transaction-description" placeholder="Description">
                     </div>
                     <div class="form__radio">
                         <div class="radio-btn">

@@ -374,6 +374,7 @@
     display: flex;
     justify-content: space-between;
     min-height: 70px;
+    padding: 5px;
 }
 
 .transaction__main-center {
@@ -382,6 +383,7 @@
 
 .transaction__text {
     padding: 6px;
+    max-width: 150px;
     margin: 0;
 }
 

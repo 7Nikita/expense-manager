@@ -14,7 +14,7 @@ export const transactionComponent = (transaction) => {
                                 ${isIncome ? "+" : "-"}${transaction["amount"]}
                         </span>
                             <div class="head-block__right-corner">
-                                <button class="head-block__btn"><i class="fas fa-trash" data-href="${transaction["uid"]}"></i></button>
+                                <button class="head-block__btn" data-href="${transaction["uid"]}"><i class="fas fa-trash"></i></button>
                             </div>
                     </div>
                     <div class="transaction__main">

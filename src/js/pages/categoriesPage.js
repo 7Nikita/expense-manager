@@ -24,8 +24,11 @@ let CategoriesPage = {
         const user = firebase.auth().currentUser;
 
         firebaseService.getCategories(user, async (data) => {
-            if (!data.length) { return; }
             let innerView = ``;
+            if (!data.length) {
+                tableMain.innerHTML = innerView;
+                return;
+            }
             for (const category of data) {
                 const categoryComponent = CategoryComponent(category);
                 innerView += await categoryComponent.render();
@@ -39,8 +42,11 @@ let CategoriesPage = {
             presentModal(AddCategoryModal);
         });
         tableMain.addEventListener("click", async (event) => {
-            if (event.target.className.includes("fas fa-trash")) {
+            if (event.target.className.includes("head-block__btn")) {
                 const categoryUid = event.target.getAttribute("data-href");
+                await firebaseService.removeCategory(user, categoryUid);
+            } else if (event.target.className.includes("fas fa-trash")) {
+                const categoryUid = event.target.parentNode.getAttribute("data-href");
                 await firebaseService.removeCategory(user, categoryUid);
             }
         });

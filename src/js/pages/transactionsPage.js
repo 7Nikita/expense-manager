@@ -26,8 +26,11 @@ let TransactionsPage = {
         const tableMain = document.querySelector(".table__main");
 
         firebaseService.getTransactions(user, async (data) => {
-            if (!data.length) { return; }
             let innerView = ``;
+            if (!data.length) {
+                tableMain.innerHTML = innerView;
+                return;
+            }
             for (const transaction of data) {
                 const transactionComponent = TransactionComponent(transaction);
                 innerView += await transactionComponent.render();
@@ -42,8 +45,11 @@ let TransactionsPage = {
         });
 
         tableMain.addEventListener("click", async (event) => {
-            if (event.target.className.includes("fas fa-trash")) {
+            if (event.target.className.includes("head-block__btn")) {
                 const transactionUid = event.target.getAttribute("data-href");
+                await firebaseService.removeTransaction(user, transactionUid);
+            } else if (event.target.className.includes("fas fa-trash")) {
+                const transactionUid = event.target.parentNode.getAttribute("data-href");
                 await firebaseService.removeTransaction(user, transactionUid);
             }
         });

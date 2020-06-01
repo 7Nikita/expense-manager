@@ -8,12 +8,11 @@ let CategoriesPage = {
         let view =  /*html*/`
             <div class="content">
                 <div class="table">
-                    <div class="table__main">
-                    </div>
+                    <ul class="table__main"></ul>
                 </div>
-            </div>
-            <div class="table__footer">
-                <button id="add-categories-button" class="table__add-btn"><i class="fas fa-plus"></i></button>
+                <div class="table__footer">
+                    <button id="add-categories-button" class="table__add-btn"><i class="fas fa-plus"></i></button>
+                </div>
             </div>
         `
         return view;

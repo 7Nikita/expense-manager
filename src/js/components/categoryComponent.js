@@ -2,7 +2,7 @@ export const categoryComponent = (category) => {
     return {
         render: async () => {
             let view =  /*html*/`
-                    <div class="transaction" style="background: ${category["color"]};">
+                    <li class="transaction" style="background: ${category["color"]};">
                         <div class="head-block">
                             <span class="head-block__title">${category["title"]}</span>
                             <div class="head-block__right-corner">
@@ -15,7 +15,7 @@ export const categoryComponent = (category) => {
                         <div class="transaction__main transaction__main-center">
                             <p class="transaction__text">${category["description"]}</p>
                         </div>
-                    </div>
+                    </li>
             `;
             return view;
         },

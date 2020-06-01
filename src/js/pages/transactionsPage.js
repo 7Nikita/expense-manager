@@ -7,17 +7,14 @@ import TransactionComponent from "../components/transactionComponent.js";
 let TransactionsPage = {
     render: async () => {
         let view =  /*html*/`
-            <div>
                 <div class="content">
                     <div class="table">
-                        <ul class="table__main">
-                        </ul>
+                        <ul class="table__main"></ul>
                     </div>
                     <div class="table__footer">
                         <button class="table__add-btn" id="add-transaction-button"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
-            </div>
         `
         return view;
     },

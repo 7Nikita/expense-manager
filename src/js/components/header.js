@@ -10,9 +10,9 @@ let header = {
                 <div class="menu__actions">
                    <nav class="menu">
                         <ul class="menu__list">
-                            <li class="menu__item" id="header-transactions">Transactions</li>
-                            <li class="menu__item" id="header-categories">Categories</li>
-                            <li class="menu__item" id="header-statistics">Statistics</li>
+                            <li><a class="menu__item" id="header-transactions">Transactions</a></li>
+                            <li><a class="menu__item" id="header-categories">Categories</a></li>
+                            <li><a class="menu__item" id="header-statistics">Statistics</a></li>
                         </ul>
                     </nav>
                 </div>

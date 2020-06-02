@@ -10,7 +10,7 @@ let AddTransactionModal = {
         let view =  /*html*/`
             <div class="content">
                 <form class="form">
-                    <a class="close-button" id="transaction-close-button">&times;</a> 
+                    <button class="close-button" id="transaction-close-button">&times;</button> 
                     <div class="form__header">
                         <h3 class="form_title">Add</h3>
                     </div>

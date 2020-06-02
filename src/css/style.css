@@ -38,6 +38,11 @@
     margin-right: 10px;
 }
 
+.menu__item_link {
+    text-decoration: none;
+    color: black;
+}
+
 .menu__item:hover {
     border-bottom: 1px solid;
 }
@@ -729,6 +734,9 @@
 }
 
 .close-button {
+    outline: none;
+    border: none;
+    background: none;
     float: right;
     width: 1.5rem;
     line-height: 1.5rem;

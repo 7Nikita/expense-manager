@@ -7,7 +7,7 @@ let AddCategoryModal = {
         let view =  /*html*/`
             <div class="content">
                 <form class="form">
-                    <a class="close-button" id="category-close-button">&times;</a> 
+                    <button class="close-button" id="category-close-button">&times;</button class="close-button"> 
                     <div class="form__header">
                         <h3 class="form_title">Add</h3>
                     </div>

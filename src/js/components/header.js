@@ -1,4 +1,5 @@
 import {Router} from "../router.js";
+import {linkNavigationHelper} from "../helpers/linkNavigationHelper.js";
 
 let header = {
     render: async () => {
@@ -10,9 +11,9 @@ let header = {
                 <div class="menu__actions">
                    <nav class="menu">
                         <ul class="menu__list">
-                            <li><a class="menu__item" id="header-transactions">Transactions</a></li>
-                            <li><a class="menu__item" id="header-categories">Categories</a></li>
-                            <li><a class="menu__item" id="header-statistics">Statistics</a></li>
+                            <li class="menu__item"><a class="menu__item_link" href="/transactions" id="header-transactions">Transactions</a></li>
+                            <li class="menu__item"><a class="menu__item_link" href="/categories" id="header-categories">Categories</a></li>
+                            <li class="menu__item" ><a class="menu__item_link" href="/statistics/category" id="header-statistics">Statistics</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -27,8 +28,8 @@ let header = {
                 <div class="user-block">
                     <nav class="menu">
                         <ul class="menu__list">
-                            <li class="menu__item" id="header-login">Log In</li>
-                            <li class="menu__item" id="header-signup">Sign Up</li>
+                            <li class="menu__item"><a class="menu__item_link" href="/login" id="header-login">Log In</a></li>
+                            <li class="menu__item"><a class="menu__item_link" href="/register" id="header-signup">Sign Up</a></li>
                         </ul>
                     </nav>
                 </div>   
@@ -49,42 +50,29 @@ let header = {
         let user = firebase.auth().currentUser;
         if (user) {
             const transactionButton = document.getElementById("header-transactions");
-            transactionButton.onclick = () => {
-                Router._instance.navigate("/transactions");
-            }
+            transactionButton.onclick = linkNavigationHelper;
 
             const categoriesButton = document.getElementById("header-categories");
-            categoriesButton.onclick = () => {
-                Router._instance.navigate("/categories");
-            }
-
+            categoriesButton.onclick = linkNavigationHelper;
             const statisticsButton = document.getElementById("header-statistics");
-            statisticsButton.onclick = () => {
-                Router._instance.navigate("/statistics/category");
-            }
+            statisticsButton.onclick = linkNavigationHelper;
 
             const logoutButton = document.getElementById("header-logout");
-            logoutButton.onclick = () => {
+            logoutButton.onclick = (event) => {
                 firebase.auth().signOut();
-                Router._instance.navigate("/login")
+                linkNavigationHelper(event);
             };
 
             const usernameButton = document.getElementById("header-username");
-            usernameButton.onclick = () => {
-              Router._instance.navigate("/profile");
-            };
+            usernameButton.onclick = linkNavigationHelper;
 
         } else {
             const loginButton = document.getElementById("header-login");
             const registerButton = document.getElementById("header-signup");
 
-            loginButton.onclick = () => {
-                Router._instance.navigate("/login");
-            };
+            loginButton.onclick = linkNavigationHelper;
 
-            registerButton.onclick = () => {
-                Router._instance.navigate("/register");
-            };
+            registerButton.onclick = linkNavigationHelper;
         }
 
     }

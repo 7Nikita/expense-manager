@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Welcome to Firebase Hosting</title>
 
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/7.14.5/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
@@ -14,11 +15,13 @@
   <script defer src="/__/firebase/7.14.5/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
-  <script type="module" src="./js/app.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
+  <script type="module" src="/js/app.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/fonts/fontawesome-free-5.13.0-web/css/all.css">
 </head>
 <body>
 <header id="header_id"></header>
 <main id="page_id"></main>
+<div id="root-modal"></div>
 </body>
 </html>
